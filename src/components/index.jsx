@@ -1,18 +1,19 @@
 import Button from "./Button";
-import ThemeSettings from "./Button";
-import Sidebar from "./Button";
-import Navbar from "./Button";
-import Footer from "./Button";
-import Cart from "./Button";
-import Chat from "./Button";
-import Notification from "./Button";
-import UserProfile from "./Button";
-import SparkLine from "./Button";
-import LineChart from "./Button";
-import Stacked from "./Button";
-import Pie from "./Button";
-import ChartsHeader from "./Button";
-import Header from "./Button";
+import ThemeSettings from "./ThemeSettings";
+import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import Cart from "./Cart";
+import Chat from "./Chat";
+import Notification from "./Notification";
+import UserProfile from "./UserProfile";
+import ChartsHeader from "./ChartsHeader";
+import Header from "./Header";
+
+import SparkLine from "./Charts/SparkLine";
+import LineChart from "./Charts/LineChart";
+import Stacked from "./Charts/Stacked";
+import Pie from "./Charts/Pie";
 
 export {
   Button,
