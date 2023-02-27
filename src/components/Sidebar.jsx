@@ -13,12 +13,12 @@ const normalLink =
   "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, currentColor } = useStateContext();
+  const { screenSize, activeMenu, setActiveMenu, currentColor } =
+    useStateContext();
 
+  // =============== Only close if mobile ===============
   const handleCloseSideBar = () => {
-    if (!activeMenu) return;
-
-    setActiveMenu(false);
+    if (activeMenu && screenSize <= 900) setActiveMenu(false);
   };
 
   return (
@@ -37,7 +37,7 @@ const Sidebar = () => {
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
                 type="button"
-                onClick={handleCloseSideBar}
+                onClick={() => setActiveMenu(!activeMenu)}
                 style={{ color: currentColor }}
                 className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
               >
@@ -56,7 +56,7 @@ const Sidebar = () => {
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
-                    // onClick={handleCloseSideBar}
+                    onClick={handleCloseSideBar}
                     style={({ isActive }) => ({
                       backgroundColor: isActive ? currentColor : "",
                     })}
