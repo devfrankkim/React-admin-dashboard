@@ -6,7 +6,7 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "contexts/ContextProvider";
 
 import "./App.css";
-import { Sidebar } from "components";
+import { Navbar, Sidebar } from "components";
 
 const App = () => {
   const {
@@ -48,6 +48,9 @@ const App = () => {
           }
         >
           <Sidebar />
+        </div>
+        <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
+          <Navbar />
         </div>
       </div>
     </BrowserRouter>
