@@ -6,14 +6,34 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "contexts/ContextProvider";
 
 import "./App.css";
-import { Navbar, Sidebar } from "components";
+import { Navbar, Sidebar, ThemeSettings } from "components";
+import {
+  Area,
+  Bar,
+  Calendar,
+  ColorMapping,
+  ColorPicker,
+  Customers,
+  Ecommerce,
+  Editor,
+  Employees,
+  Financial,
+  Kanban,
+  Line,
+  Orders,
+  Pie,
+  Pyramid,
+  Stacked,
+} from "pages";
 
 const App = () => {
   const {
-    activeMenu,
     setCurrentColor,
     setCurrentMode,
+    currentMode,
+    activeMenu,
     currentColor,
+    themeSettings,
     setThemeSettings,
   } = useStateContext();
 
@@ -30,6 +50,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="flex relative dark:bg-main-dark-bg">
+        {/* ============= Settings - Tooltip =============*/}
         <TooltipComponent content="Settings" position="Top">
           <button
             type="button"
@@ -40,6 +61,7 @@ const App = () => {
             <FiSettings />
           </button>
         </TooltipComponent>
+        {/* ============= Sidebar =============*/}
         <div
           className={
             activeMenu
@@ -49,8 +71,39 @@ const App = () => {
         >
           <Sidebar />
         </div>
+        {/* ============= NavBar  =============*/}
         <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
           <Navbar />
+        </div>
+        <div>
+          {/* {themeSettings && <ThemeSettings />} */}
+
+          <Routes>
+            {/* ============= dashboard  =============*/}
+            <Route path="/" element={<Ecommerce />} />
+            <Route path="/ecommerce" element={<Ecommerce />} />
+
+            {/* ============= pages =============  */}
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/employees" element={<Employees />} />
+            <Route path="/customers" element={<Customers />} />
+
+            {/* ============= apps =============  */}
+            <Route path="/kanban" element={<Kanban />} />
+            <Route path="/editor" element={<Editor />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/color-picker" element={<ColorPicker />} />
+
+            {/* ============= charts ============= */}
+            <Route path="/line" element={<Line />} />
+            <Route path="/area" element={<Area />} />
+            <Route path="/bar" element={<Bar />} />
+            <Route path="/pie" element={<Pie />} />
+            <Route path="/financial" element={<Financial />} />
+            <Route path="/color-mapping" element={<ColorMapping />} />
+            <Route path="/pyramid" element={<Pyramid />} />
+            <Route path="/stacked" element={<Stacked />} />
+          </Routes>
         </div>
       </div>
     </BrowserRouter>
