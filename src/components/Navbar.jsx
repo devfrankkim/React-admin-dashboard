@@ -6,12 +6,13 @@ import { RiNotification3Line } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import avatar from "utils/dummy/avatar.png";
 import { useStateContext } from "contexts/ContextProvider";
 import Cart from "./Cart";
 import Chat from "./Chat";
 import Notification from "./Notification";
 import UserProfile from "./UserProfile";
+
+import avatar from "assets/avatar.png";
 
 // ============= NavButton =============
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
